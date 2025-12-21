@@ -25,6 +25,16 @@ const HeroMixed = () => {
     return () => { document.body.style.overflow = 'auto'; };
   }, [isReelOpen]);
 
+  // === NEW SCROLL FUNCTION ===
+  // This prevents the URL from changing and just scrolls to the ID
+  const handleScroll = (e, id) => {
+    e.preventDefault(); // Stop the URL change
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   // Define the ticker text once to keep things clean
   const tickerText = "Autodesk Maya | Autodesk AutoCAD | SketchUp | ZBrush | Gaea | Unreal Engine | Twinmotion | Lumion | Substance Painter | Photoshop CC | Illustrator CC | Premiere Pro CC | After Effects CC | Unity | Houdini |";
 
@@ -77,12 +87,8 @@ const HeroMixed = () => {
             </div>
         </div>
 
-        {/* === TICKER (FIXED) === */}
+        {/* === TICKER === */}
         <div className="w-full overflow-hidden border-b border-zinc-800 py-3 bg-zinc-900/50 backdrop-blur-sm z-20 flex">
-            {/* FIX: 
-               1. Removed 'justify-around' -> Replaced with 'justify-start' 
-               2. Added 'whitespace-nowrap' to spans
-            */}
             <div className="flex min-w-full shrink-0 animate-marquee items-center justify-start gap-10 pr-10">
                 {[...Array(2)].map((_, i) => (
                     <span key={i} className="text-zinc-500 font-mono uppercase tracking-widest text-xs whitespace-nowrap">
@@ -90,7 +96,6 @@ const HeroMixed = () => {
                     </span>
                 ))}
             </div>
-            {/* DUPLICATE TRACK FOR LOOP */}
             <div className="flex min-w-full shrink-0 animate-marquee items-center justify-start gap-10 pr-10">
                 {[...Array(2)].map((_, i) => (
                     <span key={i} className="text-zinc-500 font-mono uppercase tracking-widest text-xs whitespace-nowrap">
@@ -100,13 +105,16 @@ const HeroMixed = () => {
             </div>
         </div>
 
-        {/* === CATEGORY NAVIGATION === */}
+        {/* === CATEGORY NAVIGATION (FIXED) === */}
         <div className="sticky top-0 z-40 bg-black/80 backdrop-blur-md border-b border-zinc-800 py-4 overflow-x-auto">
             <div className="px-6 md:px-12 flex gap-8 min-w-full w-max md:w-full justify-center md:justify-start">
-                <a href="#xr" className="text-sm font-bold uppercase tracking-wider text-zinc-400 hover:text-white transition-colors">XR</a>
-                <a href="#digital" className="text-sm font-bold uppercase tracking-wider text-zinc-400 hover:text-white transition-colors">Environments</a>
-                <a href="#game" className="text-sm font-bold uppercase tracking-wider text-zinc-400 hover:text-white transition-colors">Game Design</a>
-                <a href="#film" className="text-sm font-bold uppercase tracking-wider text-zinc-400 hover:text-white transition-colors">Films</a>
+                {/* UPDATED: We keep the href for hover preview, 
+                   but use onClick to handle the actual scroll manually.
+                */}
+                <a href="#xr" onClick={(e) => handleScroll(e, 'xr')} className="text-sm font-bold uppercase tracking-wider text-zinc-400 hover:text-white transition-colors">XR</a>
+                <a href="#digital" onClick={(e) => handleScroll(e, 'digital')} className="text-sm font-bold uppercase tracking-wider text-zinc-400 hover:text-white transition-colors">Environments</a>
+                <a href="#game" onClick={(e) => handleScroll(e, 'game')} className="text-sm font-bold uppercase tracking-wider text-zinc-400 hover:text-white transition-colors">Game Design</a>
+                <a href="#film" onClick={(e) => handleScroll(e, 'film')} className="text-sm font-bold uppercase tracking-wider text-zinc-400 hover:text-white transition-colors">Films</a>
             </div>
         </div>
 
