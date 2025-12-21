@@ -1,6 +1,7 @@
 import 'boxicons/css/boxicons.min.css';
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const HeaderMinimal = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -68,13 +69,13 @@ const HeaderMinimal = () => {
     >
       
       {/* 1. LOGO SECTION */}
-      <a href="/#hero" className="w-[30px] md:w-[40px] hover:opacity-80 transition-opacity">
+      <Link to="/" className="w-[30px] md:w-[40px] hover:opacity-80 transition-opacity">
         <img 
-          src="/logo.svg" 
+          src="/portfolio/logo.svg"  // <--- ADDED "/portfolio" prefix
           alt="Manuel Toledo Logo" 
           className="w-full h-auto object-contain" 
         />
-      </a>
+      </Link>
 
       {/* 2. NAVIGATION GROUP (Ref attached for click-outside detection) */}
       <div className="flex items-center gap-4" ref={navRef}>

@@ -16,7 +16,7 @@ export const xrProjects = [
 ];
 
 export const envProjects = [
-    { id: 1, title: "INTERCOSMIC DRIFTERS", description: "Concept environment for the Mission To Minerva challenge by KitBash3D", image: "/thumbnails/intercosmic.png", link: "/Intercosmic" },
+    { id: 1, title: "INTERCOSMIC DRIFTERS", description: "Concept environment for the Mission To Minerva challenge by KitBash3D", image: "/portfolio/thumbnails/intercosmic.png", link: "/Intercosmic" },
     { id: 2, title: "AIA LRGV", description: "Prototype app exploring architectural presentation workflows in Twinmotion/UE5.", image: null },
     { id: 3, title: "LAND OF NIGHTMARES", description: "Horror-themed environment study blending real-world architecture with game-ready assets.", image: null },
     { id: 4, title: "GAME ENVIRONMENT", description: "Interactive environment recreation built in Unreal Engine 5 using modular kits.", image: null },
@@ -26,7 +26,7 @@ export const envProjects = [
 ];
 
 export const gameProjects = [
-    { id: 1, title: "DUSTY", description: "A stylized low-poly adventure blending first-person slingshot combat and third-person platforming mechanics.", image: "/thumbnails/DustyRender.jpg", link: "/Dusty" },
+    { id: 1, title: "DUSTY", description: "A stylized low-poly adventure blending first-person slingshot combat and third-person platforming mechanics.", image: "/portfolio/thumbnails/DustyRender.jpg", link: "/Dusty" },
     { id: 2, title: "SPIRIT CATCHER", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit,", image: null },
     { id: 3, title: "THE GRATE ESCAPE", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit,", image: null },
     { id: 4, title: "SELFLESS", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit,", image: null },

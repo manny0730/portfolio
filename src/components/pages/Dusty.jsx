@@ -8,7 +8,7 @@ const Dusty = () => {
             role="Project Manager, Asset Implementation, Modeling, Set Dressing, VFX, Programming"
             year="2022"
             tools={["Unreal Engine 5", "Autodesk Maya", "Photoshop CC", "Illustrator CC"]}
-            heroImage="/thumbnails/DustyRender.jpg"
+            heroImage="/portfolio/thumbnails/DustyRender.jpg"
             videoID="6m-APd1cexo" 
             
             // UPDATE: We switched from `...` string to {...} JSX
