@@ -157,7 +157,7 @@ const HeaderMinimal = () => {
                         {/* Left: Profile Picture */}
                         <div className="w-24 h-32 bg-zinc-800 rounded-lg overflow-hidden flex-shrink-0">
                             <img 
-                                src="/profile.png" 
+                                src="/portfolio/profile.png" 
                                 alt="Manuel Toledo" 
                                 className="w-full h-full object-cover" 
                             />
