@@ -194,7 +194,7 @@ const HeaderMinimal = () => {
                                         <i className='bx bxl-linkedin text-lg'></i>
                                     </a>
                                     <a 
-                                        href="/Manuel_Toledo_Resume.pdf" 
+                                        href="/portfolio/Manuel_Toledo_Resume.pdf" 
                                         target="_blank" 
                                         rel="noreferrer"
                                         className="flex-1 flex items-center justify-center bg-zinc-800 hover:bg-white hover:text-black hover:border-white text-white py-2 rounded transition-all border border-zinc-700"
