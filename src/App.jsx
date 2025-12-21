@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -6,7 +6,7 @@ import 'aos/dist/aos.css';
 // Components
 import HeaderMinimal from "./components/HeaderMinimal";
 import Footer from "./components/Footer";
-import ScrollToTop from "./components/ScrollToTop"; // <--- Import here
+import ScrollToTop from "./components/ScrollToTop"; 
 
 // Pages
 import HeroMixed from "./components/HeroMixed"; 
