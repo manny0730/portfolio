@@ -1,7 +1,7 @@
 import 'boxicons/css/boxicons.min.css';
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link, useNavigate, useLocation } from 'react-router-dom'; // <--- 1. Added Hooks
+import { Link, useNavigate, useLocation } from 'react-router-dom'; 
 
 const HeaderMinimal = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -9,7 +9,6 @@ const HeaderMinimal = () => {
   const [copySuccess, setCopySuccess] = useState(false);
   const navRef = useRef(null);
   
-  // <--- 2. Initialize Hooks
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -37,22 +36,16 @@ const HeaderMinimal = () => {
     };
   }, []);
 
-  // <--- 3. NEW NAVIGATION LOGIC
   const handleScrollToSection = (sectionId) => {
-    setActiveTab(null); // Close the dropdown
+    setActiveTab(null); 
 
-    // Check if we are already on the Home Page ("/")
     if (location.pathname === '/') {
-        // If on home, just find the ID and scroll
         const element = document.getElementById(sectionId);
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
         }
     } else {
-        // If NOT on home (e.g. on "Dusty"), go home first
         navigate('/');
-        
-        // Wait a tiny bit for the home page to load, then scroll
         setTimeout(() => {
             const element = document.getElementById(sectionId);
             if (element) {
@@ -80,7 +73,6 @@ const HeaderMinimal = () => {
     }
   };
 
-  // <--- 4. UPDATED DATA (Used 'id' instead of 'href')
   const workLinks = [
     { name: "Extended Reality", id: "xr", icon: "bx-cube-alt" },
     { name: "Environments", id: "digital", icon: "bx-layer" },
@@ -136,7 +128,6 @@ const HeaderMinimal = () => {
                         transition={{ type: "spring", stiffness: 300, damping: 20 }}
                         className="absolute top-full right-0 mt-4 w-[240px] bg-zinc-900 border border-zinc-700 rounded-2xl shadow-2xl p-2 overflow-hidden flex flex-col gap-1"
                     >
-                        {/* <--- 5. UPDATED MAPPING: Uses button + handleScrollToSection */}
                         {workLinks.map((link, index) => (
                             <button 
                                 key={index}
@@ -154,24 +145,29 @@ const HeaderMinimal = () => {
             </AnimatePresence>
         </div>
 
-        {/* === ABOUT TAB === */}
+        {/* === ABOUT TAB (UPDATED) === */}
         <div 
             className="relative"
             onMouseEnter={() => setActiveTab('about')}
             onMouseLeave={() => setActiveTab(null)}
         >
-            <button 
-                onClick={() => toggleTab('about')}
-                className={`text-xs font-bold uppercase tracking-widest px-5 py-2 rounded-full transition-colors border ${
+            {/* CHANGED: Replaced <button> with <Link>. 
+               This makes the "About" button clickable to go to the page, 
+               while preserving the hover effect for the dropdown.
+            */}
+            <Link 
+                to="/about"
+                onClick={() => setActiveTab(null)} // Close dropdown on click
+                className={`text-xs font-bold uppercase tracking-widest px-5 py-2 rounded-full transition-colors border block ${
                     activeTab === 'about' 
                     ? 'bg-white text-black border-white' 
                     : 'bg-white text-black border-white hover:bg-zinc-200'
                 }`}
             >
                 About
-            </button>
+            </Link>
 
-            {/* About Dropdown */}
+            {/* About Dropdown (Kept as a preview) */}
             <AnimatePresence>
                 {activeTab === 'about' && (
                     <motion.div 

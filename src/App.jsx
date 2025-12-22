@@ -10,6 +10,9 @@ import ScrollToTop from "./components/ScrollToTop";
 
 // Pages
 import HeroMixed from "./components/HeroMixed"; 
+import About from "./components/pages/About";
+import ArchViz from "./components/pages/ArchViz";
+import OldShikumen from "./components/pages/OldShikumen";
 import Intercosmic from "./components/pages/Intercosmic";
 import Dusty from "./components/pages/Dusty";
 
@@ -36,6 +39,9 @@ const App = () => {
             } />
 
             {/* PROJECT PAGES */}
+            <Route path="/About" element={<About />} />
+            <Route path="/ArchViz" element={<ArchViz />} />
+            <Route path="/OldShikumen" element={<OldShikumen />} />
             <Route path="/Intercosmic" element={<Intercosmic />} />
             <Route path="/Dusty" element={<Dusty />} />
             

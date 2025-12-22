@@ -26,16 +26,14 @@ const HeroMixed = () => {
   }, [isReelOpen]);
 
   // === NEW SCROLL FUNCTION ===
-  // This prevents the URL from changing and just scrolls to the ID
   const handleScroll = (e, id) => {
-    e.preventDefault(); // Stop the URL change
+    e.preventDefault(); 
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
-  // Define the ticker text once to keep things clean
   const tickerText = "Autodesk Maya | Autodesk AutoCAD | SketchUp | ZBrush | Gaea | Unreal Engine | Twinmotion | Lumion | Substance Painter | Photoshop CC | Illustrator CC | Premiere Pro CC | After Effects CC | Unity | Houdini |";
 
   return (
@@ -105,12 +103,9 @@ const HeroMixed = () => {
             </div>
         </div>
 
-        {/* === CATEGORY NAVIGATION (FIXED) === */}
+        {/* === CATEGORY NAVIGATION === */}
         <div className="sticky top-0 z-40 bg-black/80 backdrop-blur-md border-b border-zinc-800 py-4 overflow-x-auto">
             <div className="px-6 md:px-12 flex gap-8 min-w-full w-max md:w-full justify-center md:justify-start">
-                {/* UPDATED: We keep the href for hover preview, 
-                   but use onClick to handle the actual scroll manually.
-                */}
                 <a href="#xr" onClick={(e) => handleScroll(e, 'xr')} className="text-sm font-bold uppercase tracking-wider text-zinc-400 hover:text-white transition-colors">XR</a>
                 <a href="#digital" onClick={(e) => handleScroll(e, 'digital')} className="text-sm font-bold uppercase tracking-wider text-zinc-400 hover:text-white transition-colors">Environments</a>
                 <a href="#game" onClick={(e) => handleScroll(e, 'game')} className="text-sm font-bold uppercase tracking-wider text-zinc-400 hover:text-white transition-colors">Game Design</a>
@@ -127,8 +122,14 @@ const HeroMixed = () => {
 
         {/* === DEMO REEL MODAL === */}
         {isReelOpen && (
-            <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/95 backdrop-blur-md p-4 md:p-8">
-                <div className="relative w-full max-w-7xl bg-black border border-zinc-800 flex flex-col md:flex-row h-full max-h-[85vh] shadow-2xl">
+            <div 
+                className="fixed inset-0 z-[60] flex items-center justify-center bg-black/95 backdrop-blur-md p-4 md:p-8"
+                onClick={() => setIsReelOpen(false)}
+            >
+                <div 
+                    className="relative w-full max-w-7xl bg-black border border-zinc-800 flex flex-col md:flex-row h-full max-h-[85vh] shadow-2xl"
+                    onClick={(e) => e.stopPropagation()}
+                >
                     <button 
                         onClick={() => setIsReelOpen(false)} 
                         className="absolute -top-12 right-0 md:-top-16 text-zinc-500 hover:text-white transition-colors flex items-center gap-2"
@@ -174,7 +175,7 @@ const HeroMixed = () => {
   )
 }
 
-// === HELPER COMPONENT ===
+// === HELPER COMPONENT (UPDATED FOR BETTER LEGIBILITY) ===
 const ProjectSection = ({ id, title, projects, icon }) => (
     <section id={id} className="border-b border-zinc-800">
         <div className="grid grid-cols-1 md:grid-cols-12 min-h-[50vh]">
@@ -194,31 +195,41 @@ const ProjectSection = ({ id, title, projects, icon }) => (
                     <Link 
                         to={project.link || "#"} 
                         key={project.id} 
-                        className="group relative border-b border-r border-zinc-800 aspect-square md:aspect-[4/3] overflow-hidden bg-black hover:bg-zinc-900 transition-colors cursor-pointer block"
+                        className="group relative border-b border-r border-zinc-800 aspect-square md:aspect-[4/3] overflow-hidden bg-black cursor-pointer block"
                     >
-                        <div className="absolute inset-0 flex flex-col items-center justify-center text-zinc-700">
+                        {/* 1. IMAGE LAYER */}
+                        <div className="absolute inset-0">
                              {project.image ? (
                                 <img 
                                     src={project.image} 
                                     alt={project.title} 
-                                    className="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 ease-in-out" 
+                                    className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-in-out" 
                                 />
                             ) : (
-                                <i className={`bx bx-${icon} text-6xl opacity-20 group-hover:opacity-10 transition-opacity`}></i>
+                                <div className="flex flex-col items-center justify-center h-full">
+                                    <i className={`bx bx-${icon} text-6xl opacity-20 group-hover:opacity-10 transition-opacity`}></i>
+                                </div>
                             )}
                         </div>
 
+                        {/* 2. DARK GRADIENT OVERLAY (Added for legibility) */}
+                        {/* This gradient is always there slightly, but gets darker on hover */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
+
+                        {/* 3. TEXT CONTENT LAYER */}
                         <div className="absolute inset-0 p-8 flex flex-col justify-between z-10">
                             <div className="flex justify-between items-start">
-                                <span className="font-mono text-xs text-zinc-500 shadow-black drop-shadow-md">
+                                <span className="font-mono text-xs text-zinc-400 shadow-black drop-shadow-md">
                                     0{index + 1}
                                 </span>
-                                <i className='bx bx-plus text-xl text-zinc-500 group-hover:text-white group-hover:rotate-90 transition-all duration-300 drop-shadow-md'></i>
+                                <i className='bx bx-plus text-xl text-zinc-400 group-hover:text-white group-hover:rotate-90 transition-all duration-300 drop-shadow-md'></i>
                             </div>
                             
                             <div>
-                                <h3 className="text-xl font-bold uppercase tracking-wider mb-2 group-hover:translate-x-2 transition-transform duration-300 drop-shadow-lg shadow-black">{project.title}</h3>
-                                <p className="text-xs text-zinc-400 line-clamp-3 group-hover:text-zinc-200 transition-colors drop-shadow-md shadow-black">
+                                <h3 className="text-xl font-bold uppercase tracking-wider mb-2 group-hover:translate-x-2 transition-transform duration-300 drop-shadow-lg shadow-black text-white">
+                                    {project.title}
+                                </h3>
+                                <p className="text-xs text-zinc-300 line-clamp-3 group-hover:text-white transition-colors drop-shadow-md shadow-black font-medium leading-relaxed">
                                     {project.description}
                                 </p>
                             </div>

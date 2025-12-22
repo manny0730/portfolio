@@ -16,6 +16,8 @@ export const xrProjects = [
 ];
 
 export const envProjects = [
+    { id: 9, title: "ARCH VIZ", description: "Environment study utilizing QuadSpinner Gaea for terrain generation and Twinmotion for lighting and rendering.", image: "/portfolio/thumbnails/manuel-toledo-archviz-pathtrace-watermark.jpeg", link: "/ArchViz" },
+    { id: 8, title: "OLD SHIKUMEN", description: "Environment recreation using Autodesk Maya and ZBrush.", image: "/portfolio/thumbnails/manuel-toledo-oldshikumensocialmedia.jpeg", link: "/OldShikumen" },
     { id: 1, title: "INTERCOSMIC DRIFTERS", description: "Concept environment for the Mission To Minerva challenge by KitBash3D", image: "/portfolio/thumbnails/intercosmic.png", link: "/Intercosmic" },
     { id: 2, title: "AIA LRGV", description: "Prototype app exploring architectural presentation workflows in Twinmotion/UE5.", image: null },
     { id: 3, title: "LAND OF NIGHTMARES", description: "Horror-themed environment study blending real-world architecture with game-ready assets.", image: null },

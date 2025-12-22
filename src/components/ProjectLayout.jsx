@@ -32,14 +32,12 @@ const ProjectLayout = ({
     }, [selectedIndex]);
 
     // === NAVIGATION LOGIC ===
-    // FIXED: Changed dependency from [galleryImages.length] to [galleryImages]
     const handleNext = useCallback((e) => {
         e?.stopPropagation();
         setDirection(1); 
         setSelectedIndex((prev) => (prev + 1) % galleryImages.length); 
     }, [galleryImages]);
 
-    // FIXED: Changed dependency from [galleryImages.length] to [galleryImages]
     const handlePrev = useCallback((e) => {
         e?.stopPropagation();
         setDirection(-1); 
@@ -69,22 +67,18 @@ const ProjectLayout = ({
     }, [selectedIndex, handleNext, handlePrev, handleClose]);
 
     // === DATA HELPER ===
-    // Normalize data so we know if it's an image or video
     const getItemData = (item) => {
         if (!item) return null;
         
-        // Handle legacy string only (e.g. "/img/path.jpg")
         if (typeof item === 'string') {
             return { type: 'image', src: item, desc: null };
         }
 
-        // Handle Object
         return {
-            type: item.type || 'image', // Default to image
-            src: item.src,              // Image source
-            videoId: item.videoId,      // YouTube ID
-            desc: item.desc,            // Description
-            // If it's a video, use provided thumb OR auto-generate YouTube thumb
+            type: item.type || 'image',
+            src: item.src,
+            videoId: item.videoId,
+            desc: item.desc,
             thumb: item.type === 'youtube' 
                 ? (item.thumb || `https://img.youtube.com/vi/${item.videoId}/maxresdefault.jpg`)
                 : item.src
@@ -159,10 +153,12 @@ const ProjectLayout = ({
                     </div>
                 </div>
 
-                {/* 2. HERO IMAGE */}
-                <div className="w-full aspect-video bg-zinc-900 border border-zinc-800 mb-20 overflow-hidden">
+                {/* 2. HERO IMAGE (FIXED: No cropping) */}
+                {/* Removed 'aspect-video' so container grows with image */}
+                <div className={`w-full bg-zinc-900 border border-zinc-800 mb-20 overflow-hidden ${heroImage ? '' : 'aspect-video'}`}>
                     {heroImage ? (
-                        <img src={heroImage} alt={title} className="w-full h-full object-cover" />
+                        /* Changed to w-full h-auto so it keeps original aspect ratio */
+                        <img src={heroImage} alt={title} className="w-full h-auto block" />
                     ) : (
                         <div className="w-full h-full flex items-center justify-center text-zinc-700">NO HERO IMAGE</div>
                     )}
@@ -215,7 +211,6 @@ const ProjectLayout = ({
                                             className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" 
                                         />
                                         
-                                        {/* Overlay Icon: Changes if it's a video or image */}
                                         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40">
                                             {item.type === 'youtube' ? (
                                                 <i className='bx bx-play-circle text-5xl text-white'></i>
@@ -348,11 +343,10 @@ const ProjectLayout = ({
                                             className="w-full h-full object-cover" 
                                             alt="thumb" 
                                         />
-                                        {/* Little play icon on thumbnail strip if video */}
                                         {item.type === 'youtube' && (
-                                             <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+                                                <div className="absolute inset-0 flex items-center justify-center bg-black/30">
                                                 <i className='bx bx-play text-white text-lg'></i>
-                                             </div>
+                                                </div>
                                         )}
                                     </button>
                                 );
