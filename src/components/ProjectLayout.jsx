@@ -241,7 +241,7 @@ const ProjectLayout = ({
                         {/* CLOSE BUTTON */}
                         <button 
                             onClick={handleClose}
-                            className="absolute top-4 right-4 md:top-8 md:right-8 text-zinc-500 hover:text-white transition-colors z-50 bg-black/50 rounded-full p-2"
+                            className="absolute top-4 right-4 md:top-8 md:right-8 text-zinc-500 hover:text-white transition-colors z-50"
                         >
                             <i className='bx bx-x text-4xl md:text-5xl'></i>
                         </button>
@@ -250,7 +250,7 @@ const ProjectLayout = ({
                         {galleryImages.length > 1 && (
                             <button
                                 onClick={handlePrev}
-                                className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-white transition-colors z-50 bg-black/50 p-2 rounded-full"
+                                className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-white transition-colors z-50"
                             >
                                 <i className='bx bx-chevron-left text-5xl md:text-6xl'></i>
                             </button>
@@ -260,7 +260,7 @@ const ProjectLayout = ({
                         {galleryImages.length > 1 && (
                             <button
                                 onClick={handleNext}
-                                className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-white transition-colors z-50 bg-black/50 p-2 rounded-full"
+                                className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-white transition-colors z-50"
                             >
                                 <i className='bx bx-chevron-right text-5xl md:text-6xl'></i>
                             </button>

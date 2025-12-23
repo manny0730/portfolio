@@ -12,6 +12,9 @@ import ScrollToTop from "./components/ScrollToTop";
 import HeroMixed from "./components/HeroMixed"; 
 import About from "./components/pages/About";
 
+// Extended Reality Pages
+import TowAR from './components/pages/TowAR';
+
 // Digital Envrionments Pages
 import ArchViz from "./components/pages/ArchViz";
 import OldShikumen from "./components/pages/OldShikumen";
@@ -23,6 +26,7 @@ import LiveActionExtension from "./components/pages/LiveActionExtension";
 
 // Game Design Pages
 import Dusty from "./components/pages/Dusty";
+import Selfless from './components/pages/Selfless';
 
 // Short Films
 import Timekeeper from "./components/pages/Timekeeper";
@@ -52,6 +56,7 @@ const App = () => {
 
             {/* PROJECT PAGES */}
             <Route path="/About" element={<About />} />
+            <Route path="/TowAR" element={<TowAR />} />
             <Route path="/ArchViz" element={<ArchViz />} />
             <Route path="/OldShikumen" element={<OldShikumen />} />
             <Route path="/Intercosmic" element={<Intercosmic />} />
@@ -60,6 +65,7 @@ const App = () => {
             <Route path="/LuigiMansion" element={<LuigiMansion />} />
             <Route path="/LiveActionExtension" element={<LiveActionExtension />} />
             <Route path="/Dusty" element={<Dusty />} />
+            <Route path="/Selfless" element={<Selfless />} />
             <Route path="/Timekeeper" element={<Timekeeper />} />
             <Route path="/BigPopCircus" element={<BigPopCircus />} />
             
