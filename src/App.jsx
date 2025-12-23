@@ -1,36 +1,39 @@
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-// Components
+// Core Components (Keep these static so the layout loads instantly)
 import HeaderMinimal from "./components/HeaderMinimal";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop"; 
 
+// === LAZY IMPORT PAGES ===
+// This tells Vite to split these into separate chunks and only load them when needed.
+
 // Main Pages
-import HeroMixed from "./components/HeroMixed"; 
-import About from "./components/pages/About";
+const HeroMixed = lazy(() => import("./components/HeroMixed")); 
+const About = lazy(() => import("./components/pages/About"));
 
 // Extended Reality Pages
-import TowAR from './components/pages/TowAR';
+const TowAR = lazy(() => import('./components/pages/TowAR'));
 
-// Digital Envrionments Pages
-import ArchViz from "./components/pages/ArchViz";
-import OldShikumen from "./components/pages/OldShikumen";
-import Intercosmic from "./components/pages/Intercosmic";
-import LoN from "./components/pages/LoN";
-import ArchEnv from "./components/pages/ArchEnv";
-import LuigiMansion from "./components/pages/LuigiMansion";
-import LiveActionExtension from "./components/pages/LiveActionExtension";
+// Digital Environments Pages
+const ArchViz = lazy(() => import("./components/pages/ArchViz"));
+const OldShikumen = lazy(() => import("./components/pages/OldShikumen"));
+const Intercosmic = lazy(() => import("./components/pages/Intercosmic"));
+const LoN = lazy(() => import("./components/pages/LoN"));
+const ArchEnv = lazy(() => import("./components/pages/ArchEnv"));
+const LuigiMansion = lazy(() => import("./components/pages/LuigiMansion"));
+const LiveActionExtension = lazy(() => import("./components/pages/LiveActionExtension"));
 
 // Game Design Pages
-import Dusty from "./components/pages/Dusty";
-import Selfless from './components/pages/Selfless';
+const Dusty = lazy(() => import("./components/pages/Dusty"));
+const Selfless = lazy(() => import('./components/pages/Selfless'));
 
 // Short Films
-import Timekeeper from "./components/pages/Timekeeper";
-import BigPopCircus from './components/pages/BigPopCircus';
+const Timekeeper = lazy(() => import("./components/pages/Timekeeper"));
+const BigPopCircus = lazy(() => import('./components/pages/BigPopCircus'));
 
 const App = () => {
   useEffect(() => {
@@ -44,32 +47,39 @@ const App = () => {
           {/* Global Scroll To Top Button */}
           <ScrollToTop /> 
 
-          <Routes>
-            {/* HOME PAGE */}
-            <Route path="/" element={
-                <>
-                    <HeaderMinimal />
-                    <HeroMixed />
-                    <Footer />
-                </>
-            } />
+          {/* The Suspense component shows a fallback (Loading...) while the new page downloads */}
+          <Suspense fallback={
+            <div className="flex items-center justify-center min-h-screen">
+              <div className="text-zinc-500 font-mono animate-pulse">LOADING...</div>
+            </div>
+          }>
+            <Routes>
+              {/* HOME PAGE */}
+              <Route path="/" element={
+                  <>
+                      <HeaderMinimal />
+                      <HeroMixed />
+                      <Footer />
+                  </>
+              } />
 
-            {/* PROJECT PAGES */}
-            <Route path="/About" element={<About />} />
-            <Route path="/TowAR" element={<TowAR />} />
-            <Route path="/ArchViz" element={<ArchViz />} />
-            <Route path="/OldShikumen" element={<OldShikumen />} />
-            <Route path="/Intercosmic" element={<Intercosmic />} />
-            <Route path="/LoN" element={<LoN />} />
-            <Route path="/ArchEnv" element={<ArchEnv />} />
-            <Route path="/LuigiMansion" element={<LuigiMansion />} />
-            <Route path="/LiveActionExtension" element={<LiveActionExtension />} />
-            <Route path="/Dusty" element={<Dusty />} />
-            <Route path="/Selfless" element={<Selfless />} />
-            <Route path="/Timekeeper" element={<Timekeeper />} />
-            <Route path="/BigPopCircus" element={<BigPopCircus />} />
-            
-          </Routes>
+              {/* PROJECT PAGES */}
+              <Route path="/About" element={<About />} />
+              <Route path="/TowAR" element={<TowAR />} />
+              <Route path="/ArchViz" element={<ArchViz />} />
+              <Route path="/OldShikumen" element={<OldShikumen />} />
+              <Route path="/Intercosmic" element={<Intercosmic />} />
+              <Route path="/LoN" element={<LoN />} />
+              <Route path="/ArchEnv" element={<ArchEnv />} />
+              <Route path="/LuigiMansion" element={<LuigiMansion />} />
+              <Route path="/LiveActionExtension" element={<LiveActionExtension />} />
+              <Route path="/Dusty" element={<Dusty />} />
+              <Route path="/Selfless" element={<Selfless />} />
+              <Route path="/Timekeeper" element={<Timekeeper />} />
+              <Route path="/BigPopCircus" element={<BigPopCircus />} />
+              
+            </Routes>
+          </Suspense>
 
         </div>
     </Router>
