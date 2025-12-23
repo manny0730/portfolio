@@ -10,7 +10,7 @@ export const reelContributions = [
 ];
 
 export const xrProjects = [
-    { id: 1, title: "SCAVENGAR HUNT", description: "TBA", image: null },
+    //{ id: 1, title: "SCAVENGAR HUNT", description: "TBA", image: null },
     { id: 2, title: "FROGGAR", description: "AR mini-game built with Unity/Vuforia utilizing surface tracking.", image: null },
     { id: 3, title: "TOWAR DEFENSE", description: "AR mini-game utilizing image tracking technology.", image: null },
 ];
@@ -35,7 +35,7 @@ export const gameProjects = [
 ];
 
 export const filmProjects = [
-    { id: 1, title: "THE TIMEKEEPER", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit,", image: null },
-    { id: 2, title: "BIG POP CIRCUS", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit,", image: null },
-    { id: 3, title: "GHOSTAL SERVICE", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit,", image: null },
+    { id: 1, title: "THE TIMEKEEPER", description: "A collaborative animated short film produced at Texas A&M University, featuring a stylized 3D environment rendered in RenderMan.", image: "/portfolio/thumbnails/TK_Shot4.png", link: "/Timekeeper" },
+    { id: 2, title: "BIG POP CIRCUS", description: "Collaborative animated short film featuring a stylized circus environment defined by custom procedural textures and dynamic lighting.", image: "/portfolio/thumbnails/BigPopCircus_Shot1.jpg", link: "/BigPopCircus" },
+    //{ id: 3, title: "GHOSTAL SERVICE", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit,", image: null },
 ];

@@ -24,6 +24,10 @@ import LiveActionExtension from "./components/pages/LiveActionExtension";
 // Game Design Pages
 import Dusty from "./components/pages/Dusty";
 
+// Short Films
+import Timekeeper from "./components/pages/Timekeeper";
+import BigPopCircus from './components/pages/BigPopCircus';
+
 const App = () => {
   useEffect(() => {
     AOS.init({ duration: 1500, once: true })
@@ -56,6 +60,8 @@ const App = () => {
             <Route path="/LuigiMansion" element={<LuigiMansion />} />
             <Route path="/LiveActionExtension" element={<LiveActionExtension />} />
             <Route path="/Dusty" element={<Dusty />} />
+            <Route path="/Timekeeper" element={<Timekeeper />} />
+            <Route path="/BigPopCircus" element={<BigPopCircus />} />
             
           </Routes>
 

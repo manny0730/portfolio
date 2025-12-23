@@ -276,10 +276,9 @@ const ProjectLayout = ({
                                 animate="center"
                                 exit="exit"
                                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                                // CHANGED: 
-                                // 1. Added conditional width (w-auto for images)
-                                // 2. Reduced max-h to 75vh so it doesn't overlap thumbnails
-                                className={`flex flex-col shadow-2xl relative border border-zinc-800 bg-zinc-900 max-h-[75vh] 
+                                // UPDATED: 
+                                // 1. Reduced max-h to 70vh to prevent overlapping the thumbnail strip at the bottom
+                                className={`flex flex-col shadow-2xl relative border border-zinc-800 bg-zinc-900 max-h-[70vh] 
                                     ${currentItem.type === 'youtube' 
                                         ? 'w-full max-w-6xl' 
                                         : 'w-auto max-w-[90vw] min-w-[300px]'
@@ -287,7 +286,6 @@ const ProjectLayout = ({
                                 }
                                 onClick={(e) => e.stopPropagation()}
                             >
-                                {/* CHANGED: Removed bg-black to make it transparent for non-16:9 images */}
                                 <div 
                                     className={`flex items-center justify-center overflow-hidden flex-grow relative 
                                         ${currentItem.type === 'youtube' 
@@ -314,11 +312,11 @@ const ProjectLayout = ({
                                             ></iframe>
                                         </div>
                                     ) : (
-                                        // UPDATED: max-h adjusted so image + description fits within the card
+                                        // UPDATED: Adjusted max-h for the image specifically
                                         <img 
                                             src={currentItem.src} 
                                             alt="Full Screen" 
-                                            className="max-w-full max-h-[65vh] w-auto h-auto object-contain mx-auto"
+                                            className="max-w-full max-h-[60vh] w-auto h-auto object-contain mx-auto"
                                         />
                                     )}
 
@@ -326,8 +324,9 @@ const ProjectLayout = ({
 
                                 {/* DESCRIPTION */}
                                 {currentItem.desc && (
-                                    <div className="p-4 md:p-6 border-t border-zinc-800 bg-zinc-950 flex-shrink-0">
-                                        <p className="text-zinc-300 text-sm md:text-base leading-relaxed font-light">
+                                    // UPDATED: Added "w-0 min-w-full" to force text to wrap based on container width
+                                    <div className="p-4 md:p-6 border-t border-zinc-800 bg-zinc-950 flex-shrink-0 w-0 min-w-full">
+                                        <p className="text-zinc-300 text-sm md:text-base leading-relaxed font-light break-words">
                                             {currentItem.desc}
                                         </p>
                                     </div>
@@ -336,7 +335,7 @@ const ProjectLayout = ({
                         </AnimatePresence>
 
                         {/* THUMBNAIL STRIP */}
-                        {/* Added z-[60] to ensure it sits on top if overlaps occur on very small screens */}
+                        {/* Ensure z-index is higher (z-[60]) so it sits on top if they ever do cross */}
                         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 overflow-x-auto max-w-[80vw] p-2 hidden md:flex z-[60]" onClick={(e) => e.stopPropagation()}>
                             {galleryImages.map((rawItem, idx) => {
                                 const item = getItemData(rawItem);
