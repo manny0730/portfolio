@@ -57,8 +57,8 @@ const HeroMixed = () => {
                 </p>
                 
                 <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter leading-[0.9] text-white mix-blend-overlay opacity-90">
-                    XR DEVELOPER | <br />
-                    3D ARTIST
+                    3D ARTIST | <br />
+                    XR DEVELOPER
                 </h1>
 
                 <div className="flex flex-col md:flex-row items-start md:items-end justify-between mt-12 gap-8 border-t border-white/20 pt-8">

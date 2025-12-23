@@ -17,6 +17,7 @@ import ArchViz from "./components/pages/ArchViz";
 import OldShikumen from "./components/pages/OldShikumen";
 import Intercosmic from "./components/pages/Intercosmic";
 import LoN from "./components/pages/LoN";
+import ArchEnv from "./components/pages/ArchEnv";
 import LuigiMansion from "./components/pages/LuigiMansion";
 import LiveActionExtension from "./components/pages/LiveActionExtension";
 
@@ -51,6 +52,7 @@ const App = () => {
             <Route path="/OldShikumen" element={<OldShikumen />} />
             <Route path="/Intercosmic" element={<Intercosmic />} />
             <Route path="/LoN" element={<LoN />} />
+            <Route path="/ArchEnv" element={<ArchEnv />} />
             <Route path="/LuigiMansion" element={<LuigiMansion />} />
             <Route path="/LiveActionExtension" element={<LiveActionExtension />} />
             <Route path="/Dusty" element={<Dusty />} />

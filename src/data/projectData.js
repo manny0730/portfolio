@@ -21,10 +21,10 @@ export const envProjects = [
     { id: 1, title: "INTERCOSMIC DRIFTERS", description: "Concept environment for the Mission To Minerva challenge by KitBash3D", image: "/portfolio/thumbnails/intercosmic.png", link: "/Intercosmic" },
     // { id: 2, title: "AIA LRGV", description: "Prototype app exploring architectural presentation workflows in Twinmotion/UE5.", image: null },
     { id: 3, title: "LAND OF NIGHTMARES", description: "Horror-themed environment study blending real-world architecture with game-ready assets.", image: "/portfolio/thumbnails/LoN_Cover.png", link: "/LoN" },
+    { id: 7, title: "ARCHITECTURAL ENVIRONMENT", description: "Architectural visualization concept for a Texas A&M Esports facility, featuring a fully realized reception and arcade area.", image: "/portfolio/thumbnails/ArchShot6.png", link: "/ArchEnv" },
     { id: 4, title: "GAME ENVIRONMENT", description: "Interactive recreation of the Luigi's Mansion 3 lobby, developed as a modular game environment in Unreal Engine 5.", image: "/portfolio/thumbnails/LuigiMansion.jpg", link: "/LuigiMansion" },
     { id: 5, title: "LIVE ACTION EXTENSION", description: "Recreation of a scene from the 1946 film The Best Years of Our Lives, integrating NURBS-based 3D assets into live-action photography.", image: "/portfolio/thumbnails/LiveActionExtensionSet.jpg", link: "/LiveActionExtension" },
-    { id: 6, title: "ANIMATED MOVIE", description: "Animated sequence reconstructing a classic movie scene with custom sims.", image: null },
-    { id: 7, title: "ARCHITECTURAL ENV", description: "Comprehensive concept for a university Esports arena.", image: null },
+    // { id: 6, title: "ANIMATED MOVIE", description: "Animated sequence reconstructing a classic movie scene with custom sims.", image: null },    
 ];
 
 export const gameProjects = [
