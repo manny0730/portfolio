@@ -8,12 +8,19 @@ import HeaderMinimal from "./components/HeaderMinimal";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop"; 
 
-// Pages
+// Main Pages
 import HeroMixed from "./components/HeroMixed"; 
 import About from "./components/pages/About";
+
+// Digital Envrionments Pages
 import ArchViz from "./components/pages/ArchViz";
 import OldShikumen from "./components/pages/OldShikumen";
 import Intercosmic from "./components/pages/Intercosmic";
+import LoN from "./components/pages/LoN";
+import LuigiMansion from "./components/pages/LuigiMansion";
+import LiveActionExtension from "./components/pages/LiveActionExtension";
+
+// Game Design Pages
 import Dusty from "./components/pages/Dusty";
 
 const App = () => {
@@ -43,6 +50,9 @@ const App = () => {
             <Route path="/ArchViz" element={<ArchViz />} />
             <Route path="/OldShikumen" element={<OldShikumen />} />
             <Route path="/Intercosmic" element={<Intercosmic />} />
+            <Route path="/LoN" element={<LoN />} />
+            <Route path="/LuigiMansion" element={<LuigiMansion />} />
+            <Route path="/LiveActionExtension" element={<LiveActionExtension />} />
             <Route path="/Dusty" element={<Dusty />} />
             
           </Routes>

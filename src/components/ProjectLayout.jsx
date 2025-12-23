@@ -153,11 +153,9 @@ const ProjectLayout = ({
                     </div>
                 </div>
 
-                {/* 2. HERO IMAGE (FIXED: No cropping) */}
-                {/* Removed 'aspect-video' so container grows with image */}
+                {/* 2. HERO IMAGE */}
                 <div className={`w-full bg-zinc-900 border border-zinc-800 mb-20 overflow-hidden ${heroImage ? '' : 'aspect-video'}`}>
                     {heroImage ? (
-                        /* Changed to w-full h-auto so it keeps original aspect ratio */
                         <img src={heroImage} alt={title} className="w-full h-auto block" />
                     ) : (
                         <div className="w-full h-full flex items-center justify-center text-zinc-700">NO HERO IMAGE</div>
@@ -278,10 +276,26 @@ const ProjectLayout = ({
                                 animate="center"
                                 exit="exit"
                                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                                className="flex flex-col max-w-6xl w-full bg-zinc-900 border border-zinc-800 shadow-2xl max-h-[85vh] relative" 
+                                // CHANGED: 
+                                // 1. Added conditional width (w-auto for images)
+                                // 2. Reduced max-h to 75vh so it doesn't overlap thumbnails
+                                className={`flex flex-col shadow-2xl relative border border-zinc-800 bg-zinc-900 max-h-[75vh] 
+                                    ${currentItem.type === 'youtube' 
+                                        ? 'w-full max-w-6xl' 
+                                        : 'w-auto max-w-[90vw] min-w-[300px]'
+                                    }`
+                                }
                                 onClick={(e) => e.stopPropagation()}
                             >
-                                <div className="w-full bg-black flex items-center justify-center overflow-hidden flex-grow relative" style={{minHeight: '200px'}}>
+                                {/* CHANGED: Removed bg-black to make it transparent for non-16:9 images */}
+                                <div 
+                                    className={`flex items-center justify-center overflow-hidden flex-grow relative 
+                                        ${currentItem.type === 'youtube' 
+                                            ? 'w-full bg-black aspect-video' 
+                                            : 'w-auto bg-transparent'
+                                        }`
+                                    }
+                                >
                                     
                                     <div className="absolute top-4 left-4 bg-black/50 text-white px-3 py-1 rounded-full text-xs font-mono z-10 border border-white/10">
                                         {selectedIndex + 1} / {galleryImages.length}
@@ -289,7 +303,7 @@ const ProjectLayout = ({
 
                                     {/* CONDITIONAL RENDERING: VIDEO VS IMAGE */}
                                     {currentItem.type === 'youtube' ? (
-                                        <div className="w-full h-full aspect-video">
+                                        <div className="w-full h-full">
                                             <iframe 
                                                 className="w-full h-full" 
                                                 src={`https://www.youtube.com/embed/${currentItem.videoId}?autoplay=1`} 
@@ -300,10 +314,11 @@ const ProjectLayout = ({
                                             ></iframe>
                                         </div>
                                     ) : (
+                                        // UPDATED: max-h adjusted so image + description fits within the card
                                         <img 
                                             src={currentItem.src} 
                                             alt="Full Screen" 
-                                            className="w-full h-full object-contain"
+                                            className="max-w-full max-h-[65vh] w-auto h-auto object-contain mx-auto"
                                         />
                                     )}
 
@@ -311,7 +326,7 @@ const ProjectLayout = ({
 
                                 {/* DESCRIPTION */}
                                 {currentItem.desc && (
-                                    <div className="p-4 md:p-6 border-t border-zinc-800 bg-zinc-950">
+                                    <div className="p-4 md:p-6 border-t border-zinc-800 bg-zinc-950 flex-shrink-0">
                                         <p className="text-zinc-300 text-sm md:text-base leading-relaxed font-light">
                                             {currentItem.desc}
                                         </p>
@@ -321,7 +336,8 @@ const ProjectLayout = ({
                         </AnimatePresence>
 
                         {/* THUMBNAIL STRIP */}
-                        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 overflow-x-auto max-w-[80vw] p-2 hidden md:flex" onClick={(e) => e.stopPropagation()}>
+                        {/* Added z-[60] to ensure it sits on top if overlaps occur on very small screens */}
+                        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 overflow-x-auto max-w-[80vw] p-2 hidden md:flex z-[60]" onClick={(e) => e.stopPropagation()}>
                             {galleryImages.map((rawItem, idx) => {
                                 const item = getItemData(rawItem);
                                 const isSelected = selectedIndex === idx;
