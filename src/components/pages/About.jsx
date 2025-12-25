@@ -24,7 +24,7 @@ const About = () => {
                             Manuel Toledo
                         </h1>
                         <h2 className="text-xl md:text-2xl text-zinc-400 font-light mb-6">
-                            XR Developer | 3D Artist
+                            3D Artist | XR Developer
                         </h2>
                         
                         <div className="text-zinc-300 leading-relaxed text-lg font-light space-y-4 max-w-2xl">

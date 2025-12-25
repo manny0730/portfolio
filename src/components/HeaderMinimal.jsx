@@ -188,7 +188,7 @@ const HeaderMinimal = () => {
                         <div className="flex-1 flex flex-col justify-center py-1">
                             <div className="mb-4">
                                 <h3 className="text-white font-bold text-base leading-tight">Manuel Toledo</h3>
-                                <p className="text-zinc-500 text-[10px] uppercase tracking-wider">XR Developer | 3D Artist</p>
+                                <p className="text-zinc-500 text-[10px] uppercase tracking-wider">3D Artist | XR Developer</p>
                             </div>
 
                             <div className="flex flex-col gap-2">

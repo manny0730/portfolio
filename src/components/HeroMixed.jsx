@@ -44,7 +44,7 @@ const HeroMixed = () => {
             
             {/* 1. SPLINE BG */}
             <div className='absolute inset-0 z-0'>
-                <div className="w-full h-full opacity-60"> 
+                <div className="w-full h-full "> 
                     <Spline scene="https://prod.spline.design/xIaUG4fIWXYUJL-k/scene.splinecode" />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40 pointer-events-none"></div>
