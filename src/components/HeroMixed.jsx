@@ -42,26 +42,40 @@ const HeroMixed = () => {
         {/* === SECTION: HERO LANDING === */}
         <div id="hero" className="relative w-full h-screen overflow-hidden border-b border-zinc-800">
             
-            {/* 1. SPLINE BG */}
+            {/* 1. BACKGROUND (SPLIT: MOBILE IMG / DESKTOP SPLINE) */}
             <div className='absolute inset-0 z-0'>
-                <div className="w-full h-full "> 
+                
+                {/* A. MOBILE: Static Image (Zoomed to Right) */}
+                <div className="block md:hidden w-full h-full">
+                    <img 
+                        src="/portfolio/hero-mobile.png" 
+                        alt="3D Robot Background" 
+                        // 'object-right' ensures the robot (on the right) is visible on narrow screens
+                        className="w-full h-full object-cover object-[75%_center] opacity-80" 
+                    />
+                </div>
+
+                {/* B. DESKTOP: Interactive Spline Scene */}
+                <div className="hidden md:block w-full h-full"> 
                     <Spline scene="https://prod.spline.design/xIaUG4fIWXYUJL-k/scene.splinecode" />
                 </div>
+                
+                {/* C. SHARED: Gradient Overlay (Crucial for text readability) */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40 pointer-events-none"></div>
             </div>
 
             {/* 2. BIG TYPOGRAPHY HERO */}
             <div className="relative z-10 h-full flex flex-col justify-center px-6 md:px-12 max-w-[1600px] mx-auto pt-20 pointer-events-none">
-                <p className="text-zinc-400 font-mono text-xs md:text-sm tracking-[0.2em] mb-4 uppercase">
+                <p className="text-zinc-400 font-mono text-xs md:text-sm tracking-[0.2em] mb-4 uppercase drop-shadow-md">
                     Manuel Toledo / Portfolio
                 </p>
                 
-                <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter leading-[0.9] text-white mix-blend-overlay opacity-90">
+                <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter leading-[0.9] text-white mix-blend-overlay opacity-90 drop-shadow-md">
                     3D ARTIST | <br />
                     XR DEVELOPER
                 </h1>
 
-                <div className="flex flex-col md:flex-row items-start md:items-end justify-between mt-12 gap-8 border-t border-white/20 pt-8">
+                <div className="flex flex-col md:flex-row items-start md:items-end justify-between mt-12 gap-8 border-t border-white/20 pt-8 drop-shadow-md">
                     <div className="max-w-md">
                          <p className="text-lg md:text-xl text-zinc-300 leading-relaxed font-light">
                             Creative 3D Artist dedicated to crafting high-fidelity worlds for games, short films, and immersive AR/VR. Bridging the gap between art and technology to seamlessly integrate visual assets into compelling experiences.
@@ -175,7 +189,7 @@ const HeroMixed = () => {
   )
 }
 
-// === HELPER COMPONENT (UPDATED FOR BETTER LEGIBILITY) ===
+// === HELPER COMPONENT ===
 const ProjectSection = ({ id, title, projects, icon }) => (
     <section id={id} className="border-b border-zinc-800">
         <div className="grid grid-cols-1 md:grid-cols-12 min-h-[50vh]">
@@ -212,8 +226,7 @@ const ProjectSection = ({ id, title, projects, icon }) => (
                             )}
                         </div>
 
-                        {/* 2. DARK GRADIENT OVERLAY (Added for legibility) */}
-                        {/* This gradient is always there slightly, but gets darker on hover */}
+                        {/* 2. DARK GRADIENT OVERLAY */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
 
                         {/* 3. TEXT CONTENT LAYER */}
