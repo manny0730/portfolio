@@ -3,7 +3,7 @@ import ProjectLayout from "../ProjectLayout";
 const ArchEnv = () => {
     return (
         <ProjectLayout
-            title="Architectural Environment"
+            title="Esports Facility"
             subtitle="Digital Environment"
             role="Visualization, Modeling, Set Dressing, Lighting"
             year="2021"
