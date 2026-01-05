@@ -12,6 +12,7 @@ export const reelContributions = [
 export const xrProjects = [
     //{ id: 1, title: "SCAVENGAR HUNT", description: "TBA", image: null },
     { id: 2, title: "FROGGAR", description: "AR mini-game built with Unity/Vuforia utilizing surface tracking.", image: null },
+    { id: 4, title: "ASTRA LENS", description: "Mixed-reality space explorer visualizing real-time NASA data via custom procedural generation and C# backend logic.", image: "/portfolio/thumbnails/XRCC-Thumbnail.png", link: "/AstraLens" },
     { id: 3, title: "TOWAR DEFENSE", description: "An Augmented Reality tower defense mini-game utilizing image tracking technology, built with Unity and Vuforia.", image: "/portfolio/thumbnails/TowAR.png", link: "/TowAR" },
 ];
 

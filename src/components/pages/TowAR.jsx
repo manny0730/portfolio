@@ -4,7 +4,7 @@ const TowAR = () => {
     return (
         <ProjectLayout
             title="TowAR Defense"
-            subtitle="Extended Reality"
+            subtitle="Augmented Reality"
             role="AR Development, Gameplay Programming"
             year="2025"
             tools={["Unity","Vuforia Engine"]}

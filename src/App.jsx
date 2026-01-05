@@ -16,6 +16,7 @@ const HeroMixed = lazy(() => import("./components/HeroMixed"));
 const About = lazy(() => import("./components/pages/About"));
 
 // Extended Reality Pages
+const AstraLens = lazy(() => import('./components/pages/AstraLens'));
 const TowAR = lazy(() => import('./components/pages/TowAR'));
 
 // Digital Environments Pages
@@ -65,6 +66,7 @@ const App = () => {
 
               {/* PROJECT PAGES */}
               <Route path="/About" element={<About />} />
+              <Route path="/AstraLens" element={<AstraLens />} />
               <Route path="/TowAR" element={<TowAR />} />
               <Route path="/ArchViz" element={<ArchViz />} />
               <Route path="/OldShikumen" element={<OldShikumen />} />
