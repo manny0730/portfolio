@@ -65,19 +65,19 @@ const HeroMixed = () => {
             </div>
 
             {/* 2. BIG TYPOGRAPHY HERO */}
-            <div className="relative z-10 h-full flex flex-col justify-center px-6 md:px-12 max-w-[1600px] mx-auto pt-20 pointer-events-none">
-                <p className="text-zinc-400 font-mono text-xs md:text-sm tracking-[0.2em] mb-4 uppercase drop-shadow-md">
+            <div className="relative z-10 h-full flex flex-col justify-center px-6 md:px-12 min-[2200px]:px-32 w-full pt-20 pointer-events-none">
+                <p className="text-zinc-400 font-mono text-xs md:text-sm min-[2200px]:text-xl tracking-[0.2em] mb-4 uppercase drop-shadow-md">
                     Manuel Toledo / Portfolio
                 </p>
                 
-                <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter leading-[0.9] text-white mix-blend-overlay opacity-90 drop-shadow-md">
+                <h1 className="text-6xl md:text-8xl lg:text-9xl min-[2200px]:text-[13rem] font-bold tracking-tighter leading-[0.9] text-white mix-blend-overlay opacity-90 drop-shadow-md">
                     3D ARTIST | <br />
                     XR DEVELOPER
                 </h1>
 
-                <div className="flex flex-col md:flex-row items-start md:items-end justify-between mt-12 gap-8 border-t border-white/20 pt-8 drop-shadow-md">
-                    <div className="max-w-md">
-                         <p className="text-lg md:text-xl text-zinc-300 leading-relaxed font-light">
+                <div className="flex flex-col md:flex-row items-start md:items-end justify-between mt-12 min-[2200px]:mt-24 gap-8 border-t border-white/20 pt-8 drop-shadow-md w-full">
+                    <div className="max-w-md min-[2200px]:max-w-3xl">
+                         <p className="text-lg md:text-xl min-[2200px]:text-3xl text-zinc-300 leading-relaxed font-light">
                             Creative 3D Artist dedicated to crafting high-fidelity worlds for games, short films, and immersive AR/VR. Bridging the gap between art and technology to seamlessly integrate visual assets into compelling experiences.
                         </p>
                     </div>
@@ -89,9 +89,9 @@ const HeroMixed = () => {
                             
                             <button 
                                 onClick={() => setIsReelOpen(true)}
-                                className="relative flex items-center gap-2 px-6 py-3 bg-white text-black font-bold hover:bg-zinc-200 transition-colors z-10"
+                                className="relative flex items-center gap-2 px-6 py-3 min-[2200px]:px-10 min-[2200px]:py-5 bg-white text-black font-bold hover:bg-zinc-200 transition-colors z-10"
                             >
-                                <i className='bx bx-play text-xl'></i> DEMO REEL
+                                <i className='bx bx-play text-xl min-[2200px]:text-3xl'></i> DEMO REEL
                             </button>
                         </div>
                     </div>
@@ -141,18 +141,18 @@ const HeroMixed = () => {
                 onClick={() => setIsReelOpen(false)}
             >
                 <div 
-                    className="relative w-full max-w-7xl bg-black border border-zinc-800 flex flex-col md:flex-row h-full max-h-[85vh] shadow-2xl"
+                    className="relative w-full max-w-7xl bg-black border border-zinc-800 flex flex-col md:flex-row shadow-2xl"
                     onClick={(e) => e.stopPropagation()}
                 >
                     <button 
                         onClick={() => setIsReelOpen(false)} 
-                        className="absolute -top-12 right-0 md:-top-16 text-zinc-500 hover:text-white transition-colors flex items-center gap-2"
+                        className="absolute top-4 right-4 z-50 flex items-center gap-2 text-white md:text-zinc-500 md:hover:text-white transition-colors bg-black/60 md:bg-transparent px-3 py-1 rounded-full md:p-0"
                     >
                         <span className="font-mono text-xs tracking-widest uppercase">Close</span>
                         <i className='bx bx-x text-4xl'></i>
                     </button>
 
-                    <div className="w-full md:w-3/4 bg-black border-b md:border-b-0 md:border-r border-zinc-800 flex items-center justify-center relative">
+                    <div className="w-full md:w-3/4 bg-black border-b md:border-b-0 md:border-r border-zinc-800 flex items-center justify-center relative aspect-video">
                          <iframe 
                             className="w-full h-full aspect-video md:aspect-auto" 
                             src="https://www.youtube.com/embed/EJzDaYT_j0o?si=Uco3BMf5Gb0jGols" 
@@ -162,7 +162,7 @@ const HeroMixed = () => {
                         ></iframe>
                     </div>
 
-                    <div className="w-full md:w-1/4 flex flex-col bg-zinc-950 overflow-hidden">
+                    <div className="w-full md:w-1/4 flex flex-col bg-zinc-950 overflow-hidden max-h-[60vh] md:max-h-full">
                         <div className="p-6 border-b border-zinc-800">
                             <h3 className="text-xl font-bold uppercase tracking-tighter text-white">Demo Reel</h3>
                             <p className="text-zinc-500 text-xs font-mono mt-1">BREAKDOWN</p>

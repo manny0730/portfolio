@@ -3,7 +3,7 @@ import 'boxicons/css/boxicons.min.css';
 const Footer = () => {
   return (
     <footer className="w-full bg-black py-10 border-t border-zinc-900 relative z-50">
-        <div className="container mx-auto px-12 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="w-full px-6 md:px-12 flex flex-col md:flex-row justify-between md:items-center gap-6">
             
             {/* LEFT: Copyright */}
             <div className="text-zinc-500 text-sm text-center md:text-left">
