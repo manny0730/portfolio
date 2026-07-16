@@ -28,10 +28,13 @@ const About = () => {
                         </h2>
                         
                         <div className="text-zinc-300 leading-relaxed text-lg font-light space-y-4 max-w-2xl">
-                            <p>
-                                Creative Environment Artist with a passion for crafting immersive 3D worlds. Proficient in creating stunning environments using Maya, Substance Painter, Unreal Engine, and Unity. Skilled in lighting, composition, and game mechanics. Collaborates effectively to seamlessly integrate environments into projects. Dedicated to creating visually stunning and memorable experiences.
-                            </p>
-                        </div>
+    <p>
+        I am currently pursuing my Master of Science in Visualization at Texas A&M University, focusing on real-time spatial visualization and interactive system development. As a Graduate Research Assistant at the Soft Interaction Lab, I build immersive VR digital twins in Unreal Engine, specifically integrating live data streaming workflows using MQTT protocols to map real-world data directly into virtual environments.
+    </p>
+    <p>
+        My expertise lies at the intersection of 3D environment creation, spatial computing, and front-end web development. At school, I serve as Vice President of the Visualization Graduate Student Association, where I recently co-developed our official web platform from the ground up using React and Tailwind CSS. Previously, I designed VR environments and managed technical hardware as a Lab Coordinator at South Texas College. Moving forward, I am excited to continue engineering data-driven, accessible XR experiences!
+    </p>
+</div>
 
                         {/* Action Buttons */}
                         <div className="flex flex-wrap gap-4 mt-8">
