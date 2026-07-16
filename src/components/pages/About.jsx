@@ -199,11 +199,23 @@ const ExpandableCard = ({ data }) => {
 
 const experienceData = [
     {
+        role: "Graduate Assistant-Research",
+        company: "Texas A&M University",
+        date: "May 2026 - Present",
+        points: [
+            "Building an interactive VR digital twin simulation in Unreal Engine, focusing on real-time spatial visualization and interactive system development.",
+            "Integrating live data streaming workflows using MQTT protocols to ingest, process, and map real-world data directly into the virtual environment.",
+            "Developing custom solutions for robust data ingestion, optimizing Unreal Engine's performance and managing data loads to ensure seamless rendering within the VR headset.",            
+        ]
+    },
+    {
         role: "Graduate Assistant-Teaching",
         company: "Texas A&M University",
         date: "August 2025 - Present",
         points: [
-            "Instructed students in media production, with a focus on 3D environment creation. Encompassing 3D asset modeling, surfacing, and scene layout, utilizing Unreal Engine and Autodesk Maya.",            
+            "Instructed students in media production, focusing on 3D environment creation, asset modeling, surfacing, and scene layout utilizing Unreal Engine and Autodesk Maya.",
+            "Provided technical guidance for the Game Studio and Game Development courses, assisting students in the creation of their game projects.",
+            "Delivered technical and artistic critique on 3D composition for the Virtual Production Summer Industry Course, while coordinating directly with industry mentors to facilitate guest lectures, live software demos, and feedback sessions.",            
         ]
     },
     {
