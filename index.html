@@ -2,13 +2,30 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/portfolio/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Manuel Toledo | Portfolio</title>
-    <script type="module" crossorigin src="/portfolio/assets/index-D6FqrCUV.js"></script>
-    <link rel="stylesheet" crossorigin href="/portfolio/assets/index-DXpjahWd.css">
+    <title>Redirecting — Manuel Toledo Portfolio</title>
+    <link rel="canonical" href="https://mtoledo.pages.dev/" />
+    <meta http-equiv="refresh" content="0; url=https://mtoledo.pages.dev/" />
+    <script>
+      (function () {
+        var targetDomain = 'https://mtoledo.pages.dev';
+        var hash = window.location.hash || '';
+        var search = window.location.search || '';
+
+        // 1. Convert old HashRouter links (e.g., /portfolio/#/AstraLens -> https://mtoledo.pages.dev/AstraLens)
+        if (hash.indexOf('#/') === 0) {
+          var routePath = hash.substring(1); // Turns "#/AstraLens" into "/AstraLens"
+          window.location.replace(targetDomain + routePath + search);
+          return;
+        }
+
+        // 2. Otherwise strip "/portfolio" from pathname and keep any section hash (e.g., #xr)
+        var subPath = window.location.pathname.replace(/^\/portfolio\/?/, '/');
+        window.location.replace(targetDomain + subPath + search + hash);
+      })();
+    </script>
   </head>
-  <body>
-    <div id="root"></div>
+  <body style="background:#121110;color:#f5f2eb;font-family:sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;">
+    <p>Redirecting to <a href="https://mtoledo.pages.dev/" style="color:#e2876b;">mtoledo.pages.dev</a>&hellip;</p>
   </body>
 </html>
